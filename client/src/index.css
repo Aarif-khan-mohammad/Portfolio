@@ -1,0 +1,613 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family: Urbanist , system-ui  , Arial, Helvetica, sans-serif;
+  color-scheme: dark;
+}
+
+:root{
+  --bg-color : #f4f3ff;
+  --btn-color : #646cff;
+  --dark-color : #242424 ;
+  --helper-color : #99b9ff ;
+  --head-color : #ffffff;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+
+
+/* base styling */
+
+body{
+  margin: 0;
+  /*min-width: 32rem;*/
+  min-height: 100vh;
+}
+
+
+h1{
+  font-size: 5.6rem;
+  line-height: 1.1;
+  font-weight: bold;
+  color: var(--head-color);
+}
+
+
+p,
+li,
+label,
+input ,textarea {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.06rem;
+  list-style: none;
+  color: var(--head-color);
+}
+
+
+a{
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--btn-color);
+  text-decoration: inherit;
+}
+
+/*Layout rules*/
+
+.container{
+  max-width: 140rem;
+  padding: 4.2rem 2.4rem;
+  margin: 0 auto;
+}
+
+.grid{
+  display: grid;
+  gap: 6.4rem;
+}
+
+.grid-two-cols{
+  grid-template-columns: repeat(2 , 1fr); /* 2 refers how many girds , 1 ratio of size*/
+
+}
+
+.grid-four-cols{
+  grid-template-columns: repeat(4,1fr);
+}
+
+
+/*Module ReUsable*/
+
+button{
+  text-transform: capitalize;
+  padding: 1rem 2.2rem; /*1 refers top and bottom , 2.2 left and right(always double the padding of left and right of  top and bottom )*/
+  font-size: 1.7rem;
+  font-weight: 500;
+  background-color: var(--btn-color);
+  color: white;
+  border-radius: 0.8rem;
+  border: 0.1rem solid transparent;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  transition: border-color 0.3s;
+
+  
+}
+
+.secondary-btn{
+  background-color: transparent;
+  box-shadow: inset 0 0 0 0.2rem var(--btn-color);
+  margin-left: 6.2rem;
+
+}
+
+.third-btn{
+  background-color: transparent;
+  box-shadow: inset 0 0 0 0.2rem var(--btn-color);
+  margin-left: 15rem;
+}
+
+.noteone{
+  margin-left: auto;
+  margin-right: 2rem;
+  border: 1px solid white;
+  height: auto;
+  text-align: center;
+  width: 20%;
+  margin-top: 5rem;
+  padding: 1rem;
+  & .note , .username , .password{
+    font-size: 2rem;
+  }
+
+  
+}
+
+
+
+/*state rule*/
+
+button:hover{
+  box-shadow: inset 0 0 0 0.2rem var(--bg-color);
+  /*border: 0.2rem solid #fff;*/
+}
+
+
+a:hover,
+a.active{
+  color: #535bf2;
+
+}
+
+/* pseduo elements*/
+
+.main-heading{
+  position: relative;
+  text-transform: capitalize;
+
+  &::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 0.5rem;
+    background-color: var(--btn-color);
+  }
+}
+
+@media (prefers-colors-scheme : light){
+  :root{
+    color: #213549;
+    background-color: #fff;
+  }
+
+  a:hover,
+  a.active{
+    color: #747bff;
+  }
+  button{
+    color: #f9f9f9;
+  }
+}
+
+
+
+/* Hero Section */
+
+.section-hero{
+  & .grid{
+    display: grid;
+    
+    align-items: center;
+  }
+
+  .hero-content{
+    & p{
+      margin: 2.4rem 0 4.8rem 0; /*top right bottom left*/
+
+      &:first-child{
+        margin: 0 0 1.2rem 0;
+      }
+    }
+  }
+
+  .hero-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img{
+      width: 75%;
+      height: auto;
+    }
+
+    & .imgg{
+      height: 70%;
+    }
+  }
+}
+
+
+
+/* End Hero Section */
+
+
+/* Analytics Section  */
+
+.section-analytics{
+  margin: 9.6rem 0;
+
+  & .container{
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+    }
+
+  & .grid{
+    color: var(--dark-color);
+    text-align: center;
+    
+    & p{
+      color: var(--dark-color);
+      text-transform: capitalize;
+    }
+
+    & .div1{
+      border-right: 0.3rem solid var(--dark-color);
+      text-align: center;
+
+      &:last-child{
+        border: none;
+      }
+    }
+
+    & h2{
+      font-size: 4.2rem;
+    }
+
+
+
+  }
+
+
+}
+
+
+
+
+/* End Analytics Section  */
+
+
+
+/***** Section Contact *****/ 
+
+.section-contact{
+  & .contact-content{
+    padding: 0;
+
+    & h1{
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  & .container{
+    padding-top: 3.2rem;
+  }
+
+  & .contact-image{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    & img{
+      width: 80%;
+      height: auto;
+    }
+  }
+
+  & .section-form{
+    & form{
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+
+    & label{
+      display: block;
+      margin-bottom: 1.2rem;
+      text-transform: capitalize;
+    }
+
+    & input,
+    textarea{
+      width: 80%;
+      padding: 0.4rem 0.6rem;
+    }
+
+  }
+}
+
+
+
+/***** End Section Contact *****/
+
+/***** Error Section *****/ 
+
+#error-page{
+  display: flex;
+  justify-content: center;
+  
+}
+
+#error-page .content{
+  max-width: 70rem;
+  text-align: center;
+  
+}
+
+.content h2.header{
+  font-size: 40rem;
+  height: 50vh;
+  line-height: 1rem;
+  padding-top: 20rem;
+  animation: animate 10s ease-in-out infinite;
+  background: -webkit-repeating-linear-gradient(
+    -60deg ,
+    #71b7e6,
+    var(--btn-color),
+    #b98acc,
+    #ee8176,
+    #b98acc,
+    var(--btn-color),
+    #9b59b6
+    );
+
+  background-size: 500%;
+
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+  position: relative;
+}
+
+.content h4{
+  font-size: 2rem;
+  line-height: 6rem;
+}
+
+#error-page p{
+  font-size: 2rem;
+}
+
+#error-page .btns button{
+  margin-bottom: 5rem;
+  border-radius: 1rem;
+  margin-top: 4.5rem;
+  margin-left: 3rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  background-color: transparent;
+  color: var(--btn-color);
+  border: 1px solid var(--btn-color);
+}
+
+
+@keyframes animate{
+  0%{
+    background-position: 0% 0%;
+  }
+  25%{
+    background-position: 100% 0%;
+  }
+  50%{
+    background-position: 100% 100%;
+  }
+  75%{
+    background-position: 0% 100%;
+  }
+  100%{
+    background-position: 0% 0%;
+  }
+}
+
+/***** End Error Section *****/
+
+
+
+
+/***** Registration Section *****/ 
+
+.section-registration{
+  padding: 0rem 3.2rem;
+
+  & .container{
+    padding-top: 3.2rem;
+    align-items: center;
+
+    & img{
+      width: 80%;
+      height: auto;
+    }
+  }
+
+  & .registration-form{
+    & label{
+      display: block;
+      margin: 2.4rem 0 0.8rem 0;
+      text-transform: capitalize;
+    }
+
+    & input{
+      width: 80%;
+      padding: 0.6rem 0.6rem;
+    }
+
+    & button{
+      margin-top: 3.2rem;
+    }
+
+  }
+}
+
+
+
+/***** End Registration Section *****/
+
+
+
+/***** Admin Section *****/ 
+
+
+.adminNav ul{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.adminContainer{
+  display: grid;
+  padding-top: 0;
+  grid-template-columns: 1fr 3fr;
+}
+
+
+.adminList li{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+}
+
+
+
+
+
+
+/***** End Admin Section *****/
+
+
+
+/***** Media Query *****/ 
+
+
+@media (width <= 998px){
+  .grid-two-cols{
+    grid-template-columns: 1fr;
+  }
+
+  .section-services{
+    & .grid-three-cols{
+      grid-template-columns: repeat(auto-fill , minmax(30rem ,1fr));
+
+    }
+  }
+
+  .section-registration{
+    & .container{
+      & img{
+        width: 60%;
+        height: auto;
+      }
+
+    }
+  }
+  .service-btn{
+    color: white;
+  }
+  
+}
+
+@media (width <= 798px){
+  html{
+    font-size: 56.25%;
+  }
+
+  .section-registration{
+    & .container {
+      & img{
+        width: 50%;
+        height: auto;
+      }
+    }
+
+    & .registration-form{
+      & input{
+        width: 100%;
+        padding: 0.6rem 0.6rem ;
+      }
+    }
+  }
+  .service-btn{
+    color: white;
+  }
+  
+
+}
+
+/***** End Media Query *****/
+
+
+
+
+
+/***** Section Service *****/ 
+
+
+
+.section-services{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .grid-three-cols{
+    grid-template-columns: repeat(auto-fill , minmax(30rem ,1fr));
+  
+  }
+  
+  & .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border: 1px solid var(--bg-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    color: white;
+
+    & h2{
+      text-align: center;
+    }
+
+    & p{
+      text-align: center;
+    }
+
+    
+    & img{
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+      margin: 2rem;
+      height: 18rem;
+      width: 90%;
+      object-fit: cover;
+    }
+
+    
+}
+
+.skills-bar{
+  background-color: transparent;
+  border: 1px solid var(--btn-color);
+  border-radius: 3rem;
+  height: auto;
+  width: 70%;
+  display: grid;
+  padding: 5rem;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 5rem;
+  row-gap: 7rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
+  & img
+{
+    height: 15rem;
+    box-shadow: rgba(239, 235, 235, 0.926) 0px 14px 15px, rgb(241, 238, 238) 0px -6px 10px, rgb(248, 245, 245) 0px 4px 6px, rgb(241, 237, 237) 0px 2px 3px, rgba(238, 231, 231, 0.964) 0px -1px 2px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    
+}
+}
+/***** End Section Service *****/
